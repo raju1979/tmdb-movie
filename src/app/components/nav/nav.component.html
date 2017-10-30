@@ -1,0 +1,16 @@
+<header id="HEADER_1" class="">
+    <div class="container headerContainer d-flex justify-content-between align-items-center">
+      <div class="logoBrand d-flex justify-content-between align-items-center">
+        <img src="assets/img/logo.svg" class="h-75" alt="">
+      </div>
+      <div class="navigationContainer d-flex align-items-center justify-content-end pr-4">
+          <ul class="list-inline m-0 p-0">
+              <li class="list-inline-item">{{loggedInUser}}</li>
+              <li class="list-inline-item" *ngIf="isLoggedIn">Logout</li>
+              <li class="list-inline-item" *ngIf="!isLoggedIn">Login</li>
+            </ul>
+      </div>
+    </div>
+    
+</header>
+<div>
