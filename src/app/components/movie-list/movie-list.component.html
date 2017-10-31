@@ -5,9 +5,9 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3 mb-2 mt-2" *ngFor="let year of yearsArray">
-      <button class="btn btn-success" (click)="searchMovieByYearAndPage({year:year,page:1})">{{year}}</button>
-    </div>
+    
+      <button *ngFor="let year of yearsArray" class="btn btn-success m-4" (click)="searchMovieByYearAndPage({year:year,page:1})">{{year}}</button>
+ 
   </div>
 
   <div class="row">
