@@ -6,8 +6,8 @@
       <div class="navigationContainer d-flex align-items-center justify-content-end pr-4">
           <ul class="list-inline m-0 p-0">
               <li class="list-inline-item">{{loggedInUser}}</li>
-              <li class="list-inline-item" *ngIf="isLoggedIn">Logout</li>
-              <li class="list-inline-item" *ngIf="!isLoggedIn">Login</li>
+              <li class="list-inline-item text-warning" *ngIf="isLoggedIn" (click)="signOut()">Logout</li>
+              <li class="list-inline-item" *ngIf="!isLoggedIn" routerLink="login">Login</li>
             </ul>
       </div>
     </div>

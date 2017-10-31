@@ -1,0 +1,19 @@
+.movieOuter{
+    
+
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.movieTextContainer{
+    flex:1;
+}
+
+.badge{
+    font-size: 1.1rem;
+}
+
+.posterImg{
+    box-shadow: 2px 3px 5px rgba(255,255,255,.4)
+}
+
+.chart {display: block; width: 100%;}

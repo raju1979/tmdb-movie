@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +12,7 @@ export class NavComponent implements OnInit {
   isLoggedIn:boolean;
   loggedInUser:string;
 
-  constructor(private _authService:AuthService) { }
+  constructor(private _authService:AuthService, private _router:Router) { }
 
   ngOnInit() {
     this._authService.getAuth()
@@ -26,6 +27,17 @@ export class NavComponent implements OnInit {
           }
         }
       )
+  }
+
+  signOut(){
+    this._authService.logout()
+      .then((data) => {
+        console.log("sign out");
+        this._router.navigate(['/login'])
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
 }

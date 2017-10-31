@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row">
+    <h1 class="display-4">Select the Year of Movie</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-2 mt-2" *ngFor="let year of yearsArray">
+      <button class="btn btn-success" (click)="searchMovieByYearAndPage({year:year,page:1})">{{year}}</button>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="my-material-card m-3" *ngFor="let movie of moviesArray">
+        <img [src]="getBackdropImg(movie.backdrop_path)" alt="" class="backdropImg">
+        <p class="h4 p-2">{{movie.title}}</p>
+        <!-- <p class="text-right p-2">
+          <small class="text-muted">{{movie.release_date}}</small>
+        </p> -->
+        <p class="text-muted p-2" [innerHTML]="truncateText(movie.overview,50)"></p>
+        <button class="btn btn-warning rounded-0 btn-block" (click)="gotoMovieDetails(movie)">View</button>
+      </div>
+  </div>
+
+  <div class="row fixed-bottom mt-4" *ngIf="moviesArray.length > 0">
+    <div class="navigationBtnContainer mt-4 d-flex justify-content-center align-items-center">
+      <button class="btn round-0 btn-outline-danger mx-3"  [disabled]="pageNumber == 1"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></button>
+
+      <span class="pager">Page {{moviesMetaData.page}} / {{moviesMetaData.total_pages}}</span>
+
+      <button class="btn round-0 btn-outline-danger mx-3" [disabled]="pageNumber == moviesMetaData.total_pages" (click)="nextPage()"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+<div class="movieOuter mt-4 p-4 d-flex justify-content-between" [ngStyle]="getContainerBg()">
+  <img [src]="getPoster(movieData?.poster_path)" alt="" class="posterImg">
+  <div class="movieTextContainer px-3">
+    <div class="text-white">
+      <p class="h2 d-inline-block"><strong>{{movieData?.title}}</strong></p>
+      <small class="text-white pl-2 h6">({{movieData?.release_date}})</small>
+    </div>
+    <div style="display:block;overflow:auto;height:150px;width:150px"  #chartarea>
+        <canvas id="myChart" width="100" height="100" #canvas></canvas>      
+    </div>
+
+    <div class="text-white pt-3">
+      <p class="h5">Overview</p>
+      <p>{{movieData?.overview}}</p>
+    </div>
+
+    <div class="text-white pt-3">
+      <p class="h5"><strong>Genres</strong></p>
+      <p>
+        <span *ngFor="let genre of movieData?.genres" class="m-2 badge badge-warning">
+            {{genre.name}}
+          </span>
+      </p>
+    </div>
+
+  </div>
+</div>

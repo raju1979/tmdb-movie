@@ -13,4 +13,10 @@ export class AuthService {
     return this._afAuth.authState.map(auth => auth);
   }
 
+  logout() {
+    return this._afAuth
+      .auth
+      .signOut()
+  }
+
 }

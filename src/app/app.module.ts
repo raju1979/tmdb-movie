@@ -19,10 +19,18 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { HttpModule } from '@angular/http';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+
+import { ChartModule } from 'angular2-chartjs';
+import { VotingChartComponent } from './components/voting-chart/voting-chart.component';
 
 const appRoutes:Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'movies',component:MovieListComponent},
+  {path:'movie/:id',component:MovieDetailComponent},
   {path:'',redirectTo:'login',pathMatch:'full'}
 ]
 
@@ -40,10 +48,14 @@ const firebaseConfig = {
     AppComponent,
     NavComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieListComponent,
+    MovieDetailComponent,
+    VotingChartComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FlashMessagesModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
@@ -51,6 +63,8 @@ const firebaseConfig = {
     
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
+
+    ChartModule
   ],
   providers: [AngularFireAuth,DataService,AuthService],
   bootstrap: [AppComponent]
