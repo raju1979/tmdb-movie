@@ -33,6 +33,8 @@ export class NavComponent implements OnInit {
     this._authService.logout()
       .then((data) => {
         console.log("sign out");
+        this.isLoggedIn = false;
+        this.loggedInUser = '';
         this._router.navigate(['/login'])
       })
       .catch((err) => {
